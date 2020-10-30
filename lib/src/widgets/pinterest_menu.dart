@@ -9,14 +9,15 @@ class PinterestMenu extends StatelessWidget {
   final Color activeColor;
   final Color inactiveColor;
 
-  PinterestMenu({this.show = true, this.backgroundColor = Colors.white, this.activeColor = Colors.black, this.inactiveColor = Colors.blueGrey});
-  
-  final List<PinterestButton> items = [
-    PinterestButton(icon: Icons.pie_chart, onPressed: (){print("1");}),
-    PinterestButton(icon: Icons.search, onPressed: (){print("2");}),
-    PinterestButton(icon: Icons.notifications, onPressed: (){print("3");}),
-    PinterestButton(icon: Icons.supervised_user_circle, onPressed: (){print("4");}),
-  ];
+  final List<PinterestButton> items;
+
+  PinterestMenu({
+    this.show = true,
+    this.backgroundColor = Colors.white,
+    this.activeColor = Colors.black,
+    this.inactiveColor = Colors.blueGrey,
+    @required this.items
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +85,7 @@ class _PinterestMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final active = Provider.of<MenuModel>(context).activeColor;
-    final inactive = Provider.of<MenuModel>(context).inactiveColor;
+    final menuModel = Provider.of<MenuModel>(context);
 
     final itemSelected = Provider.of<MenuModel>(context).itemSelected;
     return GestureDetector(
@@ -98,7 +98,7 @@ class _PinterestMenuButton extends StatelessWidget {
         child: Icon(
           item.icon,
           size: (itemSelected == index)? 35 : 25,
-          color:(itemSelected == index)? active : inactive,
+          color:(itemSelected == index)? menuModel.activeColor : menuModel.inactiveColor,
         ),
       ),
     );

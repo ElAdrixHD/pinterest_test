@@ -31,7 +31,18 @@ class _PinterestMenuWithAlignment extends StatelessWidget {
     return Container(
       alignment: Alignment.bottomCenter,
       margin: EdgeInsets.only(bottom: 30.0),
-      child: PinterestMenu(show: show),
+      child: PinterestMenu(
+        show: show,
+        activeColor: Colors.red,
+        inactiveColor: Colors.yellow,
+        backgroundColor: Colors.black,
+        items: [
+          PinterestButton(icon: Icons.pie_chart, onPressed: (){print("1");}),
+          PinterestButton(icon: Icons.search, onPressed: (){print("2");}),
+          PinterestButton(icon: Icons.notifications, onPressed: (){print("3");}),
+          PinterestButton(icon: Icons.supervised_user_circle, onPressed: (){print("4");}),
+        ],
+      ),
       );
   }
 }

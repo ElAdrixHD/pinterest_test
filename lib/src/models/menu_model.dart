@@ -23,18 +23,18 @@ class MenuModel with ChangeNotifier{
   Color get backgroundColor => this._backgroundColor;
   set backgroundColor (Color c){
     this._backgroundColor = c;
-    this.notifyListeners();
+    //this.notifyListeners();
   }
 
   Color get activeColor => this._activeColor;
   set activeColor (Color c){
     this._activeColor = c;
-    this.notifyListeners();
+    //this.notifyListeners();
   }
 
   Color get inactiveColor => this._inactiveColor;
   set inactiveColor (Color c){
     this._inactiveColor = c;
-    this.notifyListeners();
+    //this.notifyListeners();
   }
 }
